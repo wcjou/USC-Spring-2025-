@@ -5,7 +5,7 @@
 import pandas as pd
 
 # # 1.	Read the dataset into a dataframe. Be sure to import the header.
-df = pd.read_csv('Homework\Jou_William_hw1\wineQualityReds.csv')
+df = pd.read_csv('Spring 2025 Courses/ITP 259/Homework/HW1/Jou_William_hw1/wineQualityReds.csv')
 print(df.head())
 
 
