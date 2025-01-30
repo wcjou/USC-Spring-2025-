@@ -1,0 +1,1 @@
+print("Yay I\'m not gonna kill myself!")
