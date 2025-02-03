@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import Normalizer
 
-wineData = pd.read_csv("sample_data/wineQualityReds.csv")
+wineData = pd.read_csv("Spring 2025 Courses/ITP 259/Homework/HW1/Jou_William_hw1/wineQualityReds.csv")
 
 pd.set_option("display.max_columns", None)
 
