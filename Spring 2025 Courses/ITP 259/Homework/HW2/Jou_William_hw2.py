@@ -17,14 +17,14 @@ wine_quality = winedf['quality']
 
 winedf.drop('quality', axis=1, inplace=True)
 
-print(winedf)
-print(wine_quality)
+# print(winedf)
+# print(wine_quality)
 
 norm = Normalizer()
 
 winedf_norm = pd.DataFrame(norm.transform(winedf), columns=winedf.columns)
 
-print(winedf_norm)
+# print(winedf_norm)
 
 
 ks = range(1, 11)
@@ -38,7 +38,7 @@ plt.plot(ks, inertias, "-o")
 plt.xlabel("Number of Clusters, k")
 plt.ylabel("Inertia")
 plt.xticks(ks)
-plt.show()
+# plt.show()
 
 # You would pick 5 clusters 20%/elbow rule
 
@@ -47,7 +47,7 @@ model.fit(winedf_norm)
 labels = model.predict(winedf_norm)
 winedf_norm['cluster'] = pd.Series(labels)
 
-print(winedf_norm)
+# print(winedf_norm)
 
 winedf_norm['quality'] = wine_quality
 
