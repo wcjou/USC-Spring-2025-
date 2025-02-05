@@ -9,7 +9,7 @@ from sklearn.preprocessing import Normalizer
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-winedf = pd.read_csv("USC-Spring-2025-/Spring 2025 Courses/ITP 259/Homework/HW2/wineQualityReds.csv")
+winedf = pd.read_csv("Spring 2025 Courses/ITP 259/Homework/HW2/wineQualityReds.csv")
 
 winedf.drop('Wine', axis=1, inplace=True)
 
