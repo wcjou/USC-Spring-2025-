@@ -72,7 +72,7 @@ ConfusionMatrixDisplay(confusion_matrix=cnf_matrix, display_labels=logReg.classe
 
 # from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 # ConfusionMatrixDisplay(confusion_matrix=cnf_matrix_train, display_labels=logReg.classes_).plot()
-plt.show()
+# plt.show()
 
 # y_probas = logReg.predict_proba(X_test)
 
@@ -85,18 +85,13 @@ plt.show()
 
 # skplt.metrics.plot_lift_curve(y_test,y_probas)
 
-# import pandas as pd
+series = pd.Series(list('olaf'))
+print(series)
+print(pd.get_dummies(series))
 
-# series = pd.Series(list('olaf'))
-# print(series)
-# print(pd.get_dummies(series))
+dataframe = pd.DataFrame({'A': ['a', 'f', 'g'],
+                     'B': ['k', 'p', 'q'],
+                     'C': [1, 2, 3]})
 
-# import pandas as pd
-# import numpy as np
-
-# dataframe = pd.DataFrame({'A': ['a', 'f', 'g'],
-#                      'B': ['k', 'p', 'q'],
-#                      'C': [1, 2, 3]})
-
-# print(dataframe)
-# print(pd.get_dummies(dataframe, prefix=['col1', 'col2']))
+print(dataframe)
+print(pd.get_dummies(dataframe, prefix=['col1', 'col2']))
