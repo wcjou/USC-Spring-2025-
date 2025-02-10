@@ -12,91 +12,91 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LogisticRegression # model
+from sklearn.model_selection import train_test_split
 
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
-pima = pd.read_csv("diabetes.csv")
+pima = pd.read_csv("Spring 2025 Courses/ITP 259/Lectures/diabetes.csv")
 
 pd.set_option("display.max_columns", None)
 # print(pima.head())
-print("\n")
+# print("\n")
 
-print(pima)
+# print(pima)
 
 y = pima["Outcome"]
 X = pima.drop(columns=["Outcome"])
 
-print(X.head())
-print("\n")
-print(y.head())
+# print(X.head())
+# print("\n")
+# print(y.head())
 
-# Split X and y into training and testing partitions
-from sklearn.model_selection import train_test_split
-
+# # Split X and y into training and testing partitions
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=2022)
 
-from sklearn.linear_model import LogisticRegression
 
-# Step 1: Define the Model
+# # Step 1: Define the Model
 logReg = LogisticRegression(max_iter=1000000)
 
-# Step 2: fit the model on training data
+# # Step 2: fit the model on training data
 logReg.fit(X_train,y_train)
 
-# Step 3: evaluate model on test data
+# # Step 3: evaluate model on test data
 y_pred = logReg.predict(X_test)
 y_pred_train = logReg.predict(X_train)
 
-print(X_test)
+# print(X_test)
 
-y_probas = logReg.predict_proba(X_test)
+y_probas = logReg.predict_proba(X_test) # gives the probability of each class
+
 
 # print(y_probas)
 
-print(y_pred)
+# print(y_pred)
 
-from sklearn import metrics
-# feed in test labels, and the prediction of the model
+# from sklearn import metrics
+# # feed in test labels, and the prediction of the model
 cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
-cnf_matrix_train = metrics.confusion_matrix(y_train, y_pred_train)
+# cnf_matrix_train = metrics.confusion_matrix(y_train, y_pred_train)
 
 print(cnf_matrix)
-# model.classes_ gives the output classes of the model
+
+# # model.classes_ gives the output classes of the model
 print(logReg.classes_)
 
 print("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
 
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+# from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 ConfusionMatrixDisplay(confusion_matrix=cnf_matrix, display_labels=logReg.classes_).plot()
 
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-ConfusionMatrixDisplay(confusion_matrix=cnf_matrix_train, display_labels=logReg.classes_).plot()
-# plt.show()
+# from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+# ConfusionMatrixDisplay(confusion_matrix=cnf_matrix_train, display_labels=logReg.classes_).plot()
+plt.show()
 
-y_probas = logReg.predict_proba(X_test)
+# y_probas = logReg.predict_proba(X_test)
 
-y_probas
+# y_probas
 
-!pip install scikit-plot
+# !pip install scikit-plot
 
-from   sklearn import metrics
-import scikit-plot as skplt
+# from   sklearn import metrics
+# import scikit-plot as skplt
 
-skplt.metrics.plot_lift_curve(y_test,y_probas)
+# skplt.metrics.plot_lift_curve(y_test,y_probas)
 
-import pandas as pd
+# import pandas as pd
 
-series = pd.Series(list('olaf'))
-print(series)
-print(pd.get_dummies(series))
+# series = pd.Series(list('olaf'))
+# print(series)
+# print(pd.get_dummies(series))
 
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 
-dataframe = pd.DataFrame({'A': ['a', 'f', 'g'],
-                     'B': ['k', 'p', 'q'],
-                     'C': [1, 2, 3]})
+# dataframe = pd.DataFrame({'A': ['a', 'f', 'g'],
+#                      'B': ['k', 'p', 'q'],
+#                      'C': [1, 2, 3]})
 
-print(dataframe)
-print(pd.get_dummies(dataframe, prefix=['col1', 'col2']))
+# print(dataframe)
+# print(pd.get_dummies(dataframe, prefix=['col1', 'col2']))
