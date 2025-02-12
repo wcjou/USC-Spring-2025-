@@ -8,9 +8,11 @@ tipsdf <- read.csv("C:/Users/willi/OneDrive/Desktop/tips.csv")
 
 # Q1
 num_female <- sum(tipsdf$sex == "F")
+print(num_female)
 
 # Q2
 num_female_nonsmoker <- sum(tipsdf$sex == "F" & tipsdf$smoker == "No")
+print(num_female_nonsmoker)
 
 # Q3
 ggplot(tipsdf, aes(x = sex)) + 
@@ -34,17 +36,20 @@ syriadf <- read.csv("syria_refugees.csv")
 
 # Q5
 num_asian_host <- sum(syriadf$continent == 'Asia')
+print(num_asian_host)
 
 # Q6
 num_asian_euro_host <- sum(syriadf$continent == 'Asia' | syriadf$continent == 'Europe')
+print(num_asian_euro_host)
 
 # Q7
 NA_refugee_pop <- sum(syriadf$refugees[syriadf$continent == 'North America'])
+print(NA_refugee_pop)
 
 # Q8
 syriadf_sorted <- syriadf[order(-syriadf$refugees),]
 top20_refugee_countries <- head(syriadf_sorted, 20)
-ggplot(top20_refugee_countries, aes(x = refugees, y = reorder(Country, -refugees))) + 
+ggplot(top20_refugee_countries, aes(x = refugees, y = reorder(Country, refugees))) + 
   geom_point() +
   xlab('Number of Refugees') + 
   ylab('Country') +
