@@ -33,7 +33,7 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 ### Reading the CSV ###
 
-iris = pd.read_csv('sample_data/Iris.csv')
+iris = pd.read_csv('Spring 2025 Courses/ITP 259/Lectures/Iris1.csv')
 print(iris.head())
 
 ### Drop the ID that came with the file to use the Dataframe ID instead ###
