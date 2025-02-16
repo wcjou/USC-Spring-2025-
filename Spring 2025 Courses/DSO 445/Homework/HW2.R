@@ -32,7 +32,7 @@ ggplot(tipsdf, aes(x = tipCategory)) +
 ## CASE 2 ##
 
 # Reading in syria csv and storing it in syriadf
-syriadf <- read.csv("C:/Users/willi/OneDrive/Desktop/syria_refugees.csv")
+syriadf <- read.csv("syria_refugees.csv")
 
 # Q5
 num_asian_host <- sum(syriadf$continent == 'Asia')
