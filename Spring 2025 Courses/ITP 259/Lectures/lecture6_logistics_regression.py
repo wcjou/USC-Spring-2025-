@@ -70,20 +70,20 @@ print("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
 # from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 ConfusionMatrixDisplay(confusion_matrix=cnf_matrix, display_labels=logReg.classes_).plot()
 
-# from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-# ConfusionMatrixDisplay(confusion_matrix=cnf_matrix_train, display_labels=logReg.classes_).plot()
-# plt.show()
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+ConfusionMatrixDisplay(confusion_matrix=cnf_matrix_train, display_labels=logReg.classes_).plot()
+plt.show()
 
-# y_probas = logReg.predict_proba(X_test)
+y_probas = logReg.predict_proba(X_test)
 
-# y_probas
+y_probas
 
 # !pip install scikit-plot
 
-# from   sklearn import metrics
-# import scikit-plot as skplt
+from   sklearn import metrics
+import scikit-plot as skplt
 
-# skplt.metrics.plot_lift_curve(y_test,y_probas)
+skplt.metrics.plot_lift_curve(y_test,y_probas)
 
 series = pd.Series(list('olaf'))
 print(series)

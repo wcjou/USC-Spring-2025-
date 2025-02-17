@@ -67,7 +67,7 @@ X_train, X_test, y_train, y_test = \
 
 print(X_train)
 print(X_test)
-
+ 
 neighbors = np.arange(1,25)
 train_accuracy = np.empty(24)
 test_accuracy = np.empty(24)
