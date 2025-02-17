@@ -81,7 +81,7 @@ y_probas
 # !pip install scikit-plot
 
 from   sklearn import metrics
-import scikit-plot as skplt
+# import scikit-plot as skplt
 
 skplt.metrics.plot_lift_curve(y_test,y_probas)
 
