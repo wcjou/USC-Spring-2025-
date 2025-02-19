@@ -11,12 +11,11 @@ from sklearn import metrics
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-import scikitplot as skplt
 
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 # 1. Reading in the data set into a dataframe
-diabetes_knn = pd.read_csv('USC-Spring-2025-/Spring 2025 Courses/ITP 259/Homework/HW3/diabetes.csv')
+diabetes_knn = pd.read_csv('Spring 2025 Courses/ITP 259/Homework/HW3/diabetes.csv')
 print(diabetes_knn.head())
 
 # 2. Creating the feature matrix and target vector
