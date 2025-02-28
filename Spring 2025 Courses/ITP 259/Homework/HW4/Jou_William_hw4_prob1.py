@@ -32,3 +32,8 @@ X, y = generate_spiral(200)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm)
 plt.title("Spiral Data")
 plt.show()
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=2023)
+
+mlp = MLPClassifier(hidden_layer_sizes=(8, 8, 8, 8, 8, 8), max_iter=1000, random_state=2023)
