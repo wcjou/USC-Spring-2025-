@@ -60,12 +60,12 @@ plt.show()
 
 # Plot the decision boundary. Create a mesh of x and y points. Then
 # predict the label. Then plot those with color.
-X1 = np.arange(-2,2, 0.01)
-X2 = np.arange(-2,2,0.01)
+X1 = np.arange(-2,2, 0.01) # 400 points
+X2 = np.arange(-2,2,0.01) # 400 points
 
 X1, X2 = np.meshgrid(X1, X2)
 
-X_decision = pd.DataFrame({"A": np.reshape(X1,160000), "B": np.reshape(X2,160000)})
+X_decision = pd.DataFrame({"A": np.reshape(X1,160000), "B": np.reshape(X2,160000)}) # 400*400 = 160000
 Z = mlp.predict(X_decision)
 
 plt.scatter(x=X_decision["A"],y=X_decision["B"], c=Z, cmap="BuGn")
