@@ -2,7 +2,6 @@
 # ITP 259, Spring 2025
 # Homework 4
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -10,7 +9,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
-# Generate spiral data
+# Function for generating spiral data
 def generate_spiral(n_points, noise=1):
     theta = np.linspace(0, 2 * np.pi, n_points)
     r1 = 2 * theta + np.pi
@@ -33,11 +32,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm)
 plt.show()
 
 # Split data into training and testing sets
-
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=2023)
 
 # Defining and fitting the model
-
 mlp = MLPClassifier(hidden_layer_sizes=(8, 8, 8, 8, 8, 8), activation='relu', solver='adam', max_iter=1000, random_state=2023)
 mlp.fit(X_train, y_train)
 
@@ -49,18 +46,15 @@ plt.title("Loss Curve")
 plt.show()
 
 # Printing the Accuracy of the model
-
 y_pred = mlp.predict(X_test)
 print("Accuracy: ", accuracy_score(y_test, y_pred))
 
 # Plotting the Confusion Matrix
-
 cm = confusion_matrix(y_test, y_pred)
 ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=mlp.classes_).plot()
 plt.show()
 
 # Plotting the Decision Boundary
-
 xx = np.linspace(-20, 20, 400)
 yy = np.linspace(-20, 20, 400)
 gx, gy = np.meshgrid(xx, yy)
