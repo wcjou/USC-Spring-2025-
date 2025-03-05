@@ -68,6 +68,9 @@ plt.show()
 
 # predicting the quality of a given wine sample
 wine_sample = [[8, 0.6, 0, 2.0, 0.076, 10, 30, 0.9978, 3.20, 0.5, 10.0]]
-print(mlp.predict(wine_sample))
+scaler = StandardScaler()
+scaler.fit(wine_sample)
+wine_scaled = scaler.transform(wine_sample)
+print(mlp.predict(wine_scaled))
 
 

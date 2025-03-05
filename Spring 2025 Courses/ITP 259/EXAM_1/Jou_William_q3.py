@@ -13,10 +13,10 @@ import numpy as np
 df = pd.read_csv('Spring 2025 Courses/ITP 259/EXAM_1/mushrooms.csv')
 
 # Exploring dataset, target variable is the class variable
-# print(df.head())
+print(df.head())
 toxicity = df['class']
 df.drop('class', axis=1, inplace=True)
-# print(toxicity)
+print(toxicity)
 
 df_dummy = pd.get_dummies(df) 
 
@@ -28,32 +28,38 @@ y = toxicity
 
 # partitioning the X and y and then printing the number of mushrooms in each partition
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=1/3, stratify=y, random_state=2023)
-# print(X_train.shape[0], X_test.shape[0], y_train.shape[0], y_test.shape[0])
+print(X_train.shape[0], X_test.shape[0], y_train.shape[0], y_test.shape[0])
 
-
+# instantianting model
 log_reg = LogisticRegression()
-# explain point here
+# choosing logistic regression to use sigmoid function so we can get the probailities of each classficiation
 
+# fitting model to training data
 log_reg.fit(X_train, y_train)
 
+# predicting with the training and testing data
 y_train_pred = log_reg.predict(X_train)
 y_pred = log_reg.predict(X_test)
 
 # Printing the training accuracy of the model
-# print("Train Accuracy: ", accuracy_score(y_train, y_train_pred))
+print("Train Accuracy: ", accuracy_score(y_train, y_train_pred))
 
 # Printing the testing accuracy of the model
-# print("Test Accuracy: ", accuracy_score(y_test, y_pred))
+print("Test Accuracy: ", accuracy_score(y_test, y_pred))
 
+# plotting confusion matrix
 cm = confusion_matrix(y_test, y_pred)
 ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=log_reg.classes_).plot()
-# plt.show()
+plt.show()
 
+# printing probas
 y_probas = log_reg.predict_proba(X_test)
-# print(y_probas)
+print(y_probas)
 # This output gives the probabilities that each data point would be classfiied
 # as either posinous or edible
 
+
+# predicting toxcicity of sample shroom
 sample_shroom = {'cap-shape':["x"],
                  'cap-surface':["s"],
                  'cap-color':["n"],
@@ -77,16 +83,18 @@ sample_shroom = {'cap-shape':["x"],
                  'population':["s"],
                  'habitat':["u"]}
 
-# Plot the decision boundary. Create a mesh of x and y points. Then
-# predict the label. Then plot those with color.
-X1 = np.arange(-2,2, 0.01) # 400 points
-X2 = np.arange(-2,2,0.01) # 400 points
 
-X1, X2 = np.meshgrid(X1, X2)
+# converting dict into dataframe
+shroom_df = pd.DataFrame(sample_shroom)
+# adding sample into original dataframe
+df_new = pd.concat([df, shroom_df])
+#craeting a new dummy data frame with the added sample
+new_dummy = pd.get_dummies(df_new)
+#the sample is the last row of the new dataframe, storing it as the sample shroom
+sample_shroom = new_dummy.tail(1)
 
-X_decision = pd.DataFrame({"A": np.reshape(X1,160000), "B": np.reshape(X2,160000)}) # 400*400 = 160000
-Z = log_reg.predict(X_decision)
+#predicting the toxciity of the sample shroom
+print(log_reg.predict(sample_shroom))
 
-plt.scatter(x=X_decision["A"],y=X_decision["B"], c=Z, cmap="BuGn")
-plt.scatter(x=X[:,0], y=X[:,1], c=y)
-plt.show()
+
+# plot decision boundary
