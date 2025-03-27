@@ -6,13 +6,13 @@ from sklearn.metrics import davies_bouldin_score
 
 
 # Load the data
-df = pd.read_csv('USC-Spring-2025-/Spring 2025 Courses/DSO 445/Lecture/kmeans/fake_bills.csv', delimiter=';')
-# print(df.head())
+df = pd.read_csv('USC-Spring-2025-/Spring 2025 Courses/DSO 445/Lecture/kmeans/Mall_Customers.csv')
+print(df.head())
 # drop the first column
-df = df.drop(df.columns[0], axis=1)
+df = df.drop(df.columns[0:2], axis=1)
 # drop all rows with missing values
 df = df.dropna()
-# print(df.head())
+print(df.head())
 
 
 scaler = StandardScaler()
@@ -59,3 +59,4 @@ plt.show()
 
 
 
+# You would want to choose around 7 clusters based on the elbow method and Davies-Bouldin score.
