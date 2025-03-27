@@ -6,7 +6,7 @@ from sklearn.metrics import davies_bouldin_score
 
 
 # Load the data
-df = pd.read_csv('Spring 2025 Courses/DSO 445/Lecture/fake_bills.csv', delimiter=';')
+df = pd.read_csv('USC-Spring-2025-/Spring 2025 Courses/DSO 445/Lecture/kmeans/fake_bills.csv', delimiter=';')
 # print(df.head())
 # drop the first column
 df = df.drop(df.columns[0], axis=1)
