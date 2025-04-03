@@ -39,6 +39,28 @@ plt.ylabel('Inertia')
 plt.grid(True)
 plt.show()
 
+from sklearn.metrics import silhouette_score
+
+# Compute silhouette scores for each number of clusters
+sil_scores = []
+for k in cluster_range:
+    kmeans = KMeans(n_clusters=k, random_state=42).fit(df_norm)
+    if k > 1:  # silhouette_score requires at least 2 clusters
+        score = silhouette_score(df_norm, kmeans.labels_)
+        sil_scores.append(score)
+    else:
+        sil_scores.append(None)
+
+# Plot the Silhouette scores
+plt.figure(figsize=(10,6))
+plt.plot(cluster_range, sil_scores, marker='o', linestyle='--')
+plt.title('Silhouette Scores vs. Number of Clusters')
+plt.xlabel('Number of Clusters')
+plt.ylabel('Silhouette Score')
+plt.grid(True)
+plt.show()
+
+
 db_scores = []
 for k in cluster_range:
     kmeans = KMeans(n_clusters=k, random_state=42).fit(df_norm)
