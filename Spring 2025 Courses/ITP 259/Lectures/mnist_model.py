@@ -51,7 +51,7 @@ model = Model(inputs=x0, outputs=x1)
 #############################
 
 model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.SGD(lr=0.01),
+              optimizer=keras.optimizers.SGD(learning_rate=0.01),
               metrics=['accuracy'])
 
 model.fit(x_train, y_train,
